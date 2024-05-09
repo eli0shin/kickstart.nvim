@@ -21,6 +21,7 @@ require('lazy').setup({
   require 'plugins.mini',
   require 'plugins.treesitter',
   require 'plugins.gh',
+  require 'plugins.nvim-tree',
   -- require 'kickstart.plugins.debug',
   require 'kickstart.plugins.indent_line',
   require 'kickstart.plugins.lint',
