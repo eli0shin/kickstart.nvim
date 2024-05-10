@@ -1,4 +1,4 @@
-require 'config'
+require 'nvim-config'
 require 'motions'
 require 'autocommands'
 require 'lazy-setup'
