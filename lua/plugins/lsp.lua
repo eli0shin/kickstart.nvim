@@ -135,7 +135,7 @@ return { -- LSP Configuration & Plugins
     --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
     local servers = {
       -- clangd = {},
-      -- gopls = {},
+      gopls = {},
       -- pyright = {},
       -- rust_analyzer = {},
       -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
@@ -146,6 +146,7 @@ return { -- LSP Configuration & Plugins
       -- But for many setups, the LSP (`tsserver`) will work just fine
       -- tsserver = {},
       --
+      gleam = {},
 
       lua_ls = {
         -- cmd = {...},
@@ -162,6 +163,8 @@ return { -- LSP Configuration & Plugins
         },
       },
     }
+    -- gleam lsp doesn't work well with mason. Install it on it's own.
+    require('lspconfig').gleam.setup {}
 
     -- Ensure the servers and tools above are installed
     --  To check the current status of installed tools and/or manually install
