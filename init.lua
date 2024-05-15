@@ -22,6 +22,8 @@ require('lazy').setup({
   require 'plugins.treesitter',
   require 'plugins.gh',
   require 'plugins.nvim-tree',
+  require 'plugins.centerpad',
+  require 'plugins.zen-mode',
   -- require 'kickstart.plugins.debug',
   require 'kickstart.plugins.indent_line',
   require 'kickstart.plugins.lint',

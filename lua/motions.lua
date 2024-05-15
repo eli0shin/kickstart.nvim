@@ -37,3 +37,7 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 
 -- remap ; to  ; in normal mode
 vim.keymap.set('n', ';', ':', { remap = true })
+
+-- Set the keymap to toggle ZenMode
+vim.api.nvim_set_keymap('n', '<leader>z', ':ZenMode<CR>', { noremap = true, silent = true, desc = 'Toggle Zen Mode' })
+
