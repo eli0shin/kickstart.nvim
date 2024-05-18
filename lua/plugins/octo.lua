@@ -6,7 +6,12 @@ return {
     -- OR 'ibhagwan/fzf-lua',
     'nvim-tree/nvim-web-devicons',
   },
-  config = function ()
-    require"octo".setup()
-  end
+  config = function()
+    require('octo').setup()
+  end,
+  opts = {
+    suppress_missing_scope = {
+      projects_v2 = true,
+    },
+  },
 }
