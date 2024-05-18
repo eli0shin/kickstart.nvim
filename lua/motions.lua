@@ -1,3 +1,12 @@
+-- Create a local function to simplify mapping
+local map = function(mode, lhs, rhs, opts)
+  local options = { noremap = true }
+  if opts then
+    options = vim.tbl_extend('force', options, opts)
+  end
+  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+end
+
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
@@ -35,9 +44,18 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+-- Split windows
+map('n', '<Leader>h', ':split<CR>', { silent = true })
+map('n', '<Leader>v', ':vsplit<CR>', { silent = true })
+
+-- Resize windows
+map('n', '<Leader><Left>', ':vertical resize -20<CR>', { silent = true })
+map('n', '<Leader><Right>', ':vertical resize +20<CR>', { silent = true })
+map('n', '<Leader><Up>', ':resize +10<CR>', { silent = true })
+map('n', '<Leader><Down>', ':resize -10<CR>', { silent = true })
+
 -- remap ; to  ; in normal mode
 vim.keymap.set('n', ';', ':', { remap = true })
 
 -- Set the keymap to toggle ZenMode
 vim.api.nvim_set_keymap('n', '<leader>z', ':ZenMode<CR>', { noremap = true, silent = true, desc = 'Toggle Zen Mode' })
-

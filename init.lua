@@ -25,6 +25,7 @@ require('lazy').setup({
   require 'plugins.centerpad',
   require 'plugins.zen-mode',
   require 'plugins.octo',
+  require 'plugins.telescope-file-browser',
   -- require 'kickstart.plugins.debug',
   require 'kickstart.plugins.indent_line',
   require 'kickstart.plugins.lint',
