@@ -28,6 +28,7 @@ require('lazy').setup({
   require 'plugins.telescope-file-browser',
   require 'plugins.leap',
   require 'plugins.autoclose',
+  require 'plugins.harpoon',
   -- require 'kickstart.plugins.debug',
   require 'kickstart.plugins.indent_line',
   require 'kickstart.plugins.lint',
