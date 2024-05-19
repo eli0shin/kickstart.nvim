@@ -29,6 +29,7 @@ require('lazy').setup({
   require 'plugins.leap',
   require 'plugins.autoclose',
   require 'plugins.harpoon',
+  require 'plugins.lazy',
   -- require 'kickstart.plugins.debug',
   require 'kickstart.plugins.indent_line',
   require 'kickstart.plugins.lint',
