@@ -7,11 +7,18 @@ return {
     'nvim-tree/nvim-web-devicons',
   },
   config = function()
-    require('octo').setup()
+    require('octo').setup { enable_builtin = true }
   end,
   opts = {
     suppress_missing_scope = {
       projects_v2 = true,
+    },
+  },
+  keys = {
+    {
+      '<leader>O',
+      '<cmd>Octo<cr>',
+      { desc = 'Octo' },
     },
   },
 }
