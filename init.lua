@@ -30,6 +30,7 @@ require('lazy').setup({
   require 'plugins.autoclose',
   require 'plugins.harpoon',
   require 'plugins.lazy',
+  require 'plugins.typescript-tools',
   -- require 'kickstart.plugins.debug',
   require 'kickstart.plugins.indent_line',
   require 'kickstart.plugins.lint',
