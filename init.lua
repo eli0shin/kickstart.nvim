@@ -8,6 +8,7 @@ require 'lazy-setup'
 require('lazy').setup({
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
   'tpope/vim-fugitive',
+  'tpope/vim-rhubarb',
   require 'plugins.comment',
   require 'plugins.gitsigns',
   require 'plugins.which-key',
