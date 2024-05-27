@@ -3,6 +3,8 @@ require 'motions'
 require 'autocommands'
 require 'lazy-setup'
 
+vim.g.github_enterprise_urls = { 'https://github.paypal.com' }
+
 --  To check the current status of your plugins, run
 --    :Lazy
 require('lazy').setup({
@@ -24,7 +26,6 @@ require('lazy').setup({
   require 'plugins.treesitter',
   require 'plugins.gh',
   require 'plugins.nvim-tree',
-  require 'plugins.centerpad',
   require 'plugins.zen-mode',
   require 'plugins.octo',
   require 'plugins.telescope-file-browser',
@@ -34,6 +35,7 @@ require('lazy').setup({
   require 'plugins.lazy',
   require 'plugins.typescript-tools',
   require 'plugins.jester',
+  require 'plugins.noice',
   require 'kickstart.plugins.debug',
   require 'kickstart.plugins.indent_line',
   require 'kickstart.plugins.lint',

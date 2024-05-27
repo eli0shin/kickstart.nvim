@@ -1,5 +1,6 @@
 return {
   'm4xshen/autoclose.nvim',
+  event = 'VeryLazy',
   opts = {
     keys = {
       ['('] = { escape = false, close = true, pair = '()' },
@@ -11,9 +12,12 @@ return {
       [']'] = { escape = true, close = false, pair = '[]' },
       ['}'] = { escape = true, close = false, pair = '{}' },
 
-      ['"'] = { escape = true, close = true, pair = '""' },
-      ["'"] = { escape = true, close = true, pair = "''" },
-      ['`'] = { escape = true, close = true, pair = '``' },
+      -- disabled for now due to the false positive pair rate.
+      -- little things like "'" in a sentance being excaped constantly or surrounding a word in quotes.
+      -- let's see how this goes
+      -- ['"'] = { escape = true, close = true, pair = '""' },
+      -- ["'"] = { escape = true, close = true, pair = "''" },
+      -- ['`'] = { escape = true, close = true, pair = '``' },
     },
     options = {
       disabled_filetypes = { 'text' },

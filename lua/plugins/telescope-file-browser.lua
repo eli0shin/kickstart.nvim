@@ -5,5 +5,6 @@ vim.keymap.set('n', '<space>fc', ':Telescope file_browser path=%:p:h select_buff
 
 return {
   'nvim-telescope/telescope-file-browser.nvim',
+  event = 'VeryLazy',
   dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' },
 }

@@ -1,5 +1,6 @@
 return {
   'David-Kunz/jester',
+  event = 'VeryLazy',
   dependencies = {
     'mfussenegger/nvim-dap',
   },
