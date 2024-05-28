@@ -55,7 +55,7 @@ map('n', '<Leader><Up>', ':resize +10<CR>', { silent = true })
 map('n', '<Leader><Down>', ':resize -10<CR>', { silent = true })
 
 -- remap ; to  ; in normal mode
-vim.keymap.set('n', ';', ':', { remap = true })
+vim.keymap.set({ 'n', 'x', 'o', 'v' }, ';', ':', { remap = true })
 
 -- Set the keymap to toggle ZenMode
 vim.api.nvim_set_keymap('n', '<leader>z', ':ZenMode<CR>', { noremap = true, silent = true, desc = 'Toggle Zen Mode' })
