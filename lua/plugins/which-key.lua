@@ -14,6 +14,20 @@ return { -- Useful plugin to show you pending keybinds.
       ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
     }
     which_key.register({
+      d = {
+        name = '[D]iff',
+        v = {
+          name = '[V]iew',
+          o = {
+            '<cmd>DiffviewOpen<cr>',
+            '[O]pen',
+          },
+          c = {
+            '<cmd>DiffviewClose<cr>',
+            '[C]lose',
+          },
+        },
+      },
       g = {
         name = '+Git',
         h = {

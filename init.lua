@@ -37,6 +37,7 @@ require('lazy').setup({
   require 'plugins.jester',
   require 'plugins.noice',
   require 'plugins.cspell',
+  require 'plugins.diffview',
   require 'kickstart.plugins.debug',
   require 'kickstart.plugins.indent_line',
   require 'kickstart.plugins.lint',
