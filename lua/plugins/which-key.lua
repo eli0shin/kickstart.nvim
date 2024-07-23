@@ -76,6 +76,17 @@ return { -- Useful plugin to show you pending keybinds.
           },
         },
       },
+      t = {
+        name = '[T]urbo',
+        l = {
+          '<cmd>Logsitter<cr>',
+          '[L]og',
+        },
+        c = {
+          '<cmd>LogsitterClearBuf<cr>',
+          '[C]lear File',
+        },
+      },
     }, { prefix = '<leader>' })
   end,
 }
