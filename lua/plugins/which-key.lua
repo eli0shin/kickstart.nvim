@@ -44,10 +44,6 @@ return { -- Useful plugin to show you pending keybinds.
             name = '+Issues',
             p = { '<cmd>GHPreviewIssue<cr>', 'Preview' },
           },
-          l = {
-            name = '+Litee',
-            t = { '<cmd>LTPanel<cr>', 'Toggle Panel' },
-          },
           r = {
             name = '+Review',
             b = { '<cmd>GHStartReview<cr>', 'Begin' },
