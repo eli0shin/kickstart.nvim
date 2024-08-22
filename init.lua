@@ -40,6 +40,8 @@ require('lazy').setup({
   require 'plugins.diffview',
   require 'plugins.tmux',
   require 'plugins.logsitter',
+  require 'plugins.oil',
+  require 'plugins.arrow',
   require 'kickstart.plugins.debug',
   require 'kickstart.plugins.indent_line',
   require 'kickstart.plugins.lint',

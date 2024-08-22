@@ -3,9 +3,9 @@ return {
   event = 'VeryLazy',
   opts = {
     keys = {
-      ['('] = { escape = false, close = true, pair = '()' },
-      ['['] = { escape = false, close = true, pair = '[]' },
-      ['{'] = { escape = false, close = true, pair = '{}' },
+      ['('] = { escape = false, close = false, pair = '()' },
+      ['['] = { escape = false, close = false, pair = '[]' },
+      ['{'] = { escape = false, close = false, pair = '{}' },
 
       ['>'] = { escape = true, close = false, pair = '<>' },
       [')'] = { escape = true, close = false, pair = '()' },
