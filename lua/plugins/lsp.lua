@@ -137,6 +137,8 @@ return { -- LSP Configuration & Plugins
       -- clangd = {},
       gopls = {},
       jsonls = {},
+      graphql = {},
+      marksman = {},
       -- pyright = {},
       -- rust_analyzer = {},
       -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
@@ -145,7 +147,7 @@ return { -- LSP Configuration & Plugins
       --    https://github.com/pmizio/typescript-tools.nvim
       --
       -- But for many setups, the LSP (`tsserver`) will work just fine
-      tsserver = {
+      ts_ls = {
         single_file_support = true,
       },
       --

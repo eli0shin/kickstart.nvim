@@ -21,8 +21,9 @@ return { -- Useful plugin to show you pending keybinds.
       { '<leader>dv', group = '[V]iew' },
       { '<leader>dvc', '<cmd>DiffviewClose<cr>', desc = '[C]lose' },
       { '<leader>dvo', '<cmd>DiffviewOpen<cr>', desc = '[O]pen' },
-      { '<leader>g', group = 'Git' },
-      { '<leader>gh', group = 'Github' },
+      { '<leader>dvi', ':DiffviewOpen ', desc = '[O]pen' },
+      { '<leader>g', group = '[G]it' },
+      { '<leader>gh', group = '[G]it[h]ub' },
       { '<leader>ghc', group = 'Commits' },
       { '<leader>ghcc', '<cmd>GHCloseCommit<cr>', desc = 'Close' },
       { '<leader>ghce', '<cmd>GHExpandCommit<cr>', desc = 'Expand' },
@@ -55,6 +56,8 @@ return { -- Useful plugin to show you pending keybinds.
       { '<leader>tc', '<cmd>LogsitterClearBuf<cr>', desc = '[C]lear File' },
       { '<leader>tl', '<cmd>Logsitter<cr>', desc = '[L]og' },
       { '<leader>o', '<cmd>Oil<cr>', desc = '[O]il' },
+      { '<leader>m', group = '[M]arkdown' },
+      { '<leader>mt', '<cmd>RenderMarkdown toggle<cr>', desc = '[T]oggle' },
     }
   end,
 }

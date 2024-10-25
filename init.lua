@@ -42,6 +42,7 @@ require('lazy').setup({
   require 'plugins.logsitter',
   require 'plugins.oil',
   require 'plugins.arrow',
+  require 'plugins.render-markdown',
   require 'kickstart.plugins.debug',
   require 'kickstart.plugins.indent_line',
   require 'kickstart.plugins.lint',
