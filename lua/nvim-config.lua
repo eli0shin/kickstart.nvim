@@ -71,3 +71,9 @@ vim.opt.hlsearch = true
 
 -- optionally enable 24-bit colour
 vim.opt.termguicolors = true
+
+-- set the tab width to 2
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.softtabstop = 2
+vim.opt.expandtab = false
