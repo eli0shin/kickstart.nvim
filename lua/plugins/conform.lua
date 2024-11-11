@@ -59,6 +59,9 @@ return { -- Autoformat
       json = { 'prettier' },
       markdown = { 'prettier' },
       graphql = { 'prettier' },
+      html = { 'prettier' },
+      css = { 'prettier' },
+      go = { 'gofmt', 'goimports' },
     },
   },
 }
