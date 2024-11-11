@@ -20,8 +20,9 @@ return { -- You can easily change to a different colorscheme.
       -- Value is any valid attr-list value for `:help nvim_set_hl`
       comments = { italic = true },
       keywords = { italic = true },
-      functions = {},
+      functions = { italic = true },
       variables = {},
+      terminal_colors = true,
       -- Background styles. Can be "dark", "transparent" or "normal"
       sidebars = 'dark', -- style for sidebars, see below
       floats = 'dark', -- style for floating windows
