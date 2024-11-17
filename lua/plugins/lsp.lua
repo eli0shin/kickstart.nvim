@@ -13,6 +13,23 @@ return { -- LSP Configuration & Plugins
     -- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
     -- used for completion, annotations and signatures of Neovim apis
     { 'folke/neodev.nvim', opts = {} },
+    -- Filetype icons
+    {
+      'echasnovski/mini.icons',
+      opts = {
+        file = {
+          ['.eslintrc.js'] = { glyph = '󰱺', hl = 'MiniIconsYellow' },
+          ['.node-version'] = { glyph = '', hl = 'MiniIconsGreen' },
+          ['.prettierrc'] = { glyph = '', hl = 'MiniIconsPurple' },
+          ['.yarnrc.yml'] = { glyph = '', hl = 'MiniIconsBlue' },
+          ['eslint.config.js'] = { glyph = '󰱺', hl = 'MiniIconsYellow' },
+          ['package.json'] = { glyph = '', hl = 'MiniIconsGreen' },
+          ['tsconfig.json'] = { glyph = '', hl = 'MiniIconsAzure' },
+          ['tsconfig.build.json'] = { glyph = '', hl = 'MiniIconsAzure' },
+          ['yarn.lock'] = { glyph = '', hl = 'MiniIconsBlue' },
+        },
+      },
+    },
   },
   config = function()
     -- Brief aside: **What is LSP?**
@@ -150,6 +167,7 @@ return { -- LSP Configuration & Plugins
       --
       -- But for many setups, the LSP (`tsserver`) will work just fine
       ts_ls = {
+        enabled = false,
         single_file_support = true,
       },
       htmx = {},
@@ -171,6 +189,8 @@ return { -- LSP Configuration & Plugins
           },
         },
       },
+      -- copied from lazyvim config
+      vtsls = {},
     }
     -- gleam lsp doesn't work well with mason. Install it on it's own.
     require('lspconfig').gleam.setup {}
