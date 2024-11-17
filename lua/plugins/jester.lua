@@ -14,17 +14,10 @@ return {
       path_to_jest_debug = './node_modules/.bin/jest', -- used for debugging
       terminal_cmd = ':vsplit | terminal', -- used to spawn a terminal for running tests, for debugging refer to nvim-dap's config
       dap = { -- debug adapter configuration
-        type = 'node2',
+        type = 'pwa-node',
         request = 'launch',
         cwd = vim.fn.getcwd(),
-        runtimeArgs = { '--inspect-brk', '$path_to_jest', '--no-coverage', '-t', '--', '$file' },
-        args = { '--no-cache' },
         sourceMaps = false,
-        protocol = 'inspector',
-        skipFiles = { '<node_internals>/**/*.js' },
-        console = 'integratedTerminal',
-        port = 9229,
-        disableOptimisticBPs = true,
       },
     }
     vim.keymap.set('n', '<leader>rt', require('jester').run, { desc = '[R]un [T]est' })
