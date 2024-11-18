@@ -19,6 +19,9 @@ return { -- LSP Configuration & Plugins
       opts = {
         file = {
           ['.eslintrc.js'] = { glyph = '󰱺', hl = 'MiniIconsYellow' },
+          ['.eslintrc'] = { glyph = '󰱺', hl = 'MiniIconsYellow' },
+          ['config.eslint.js'] = { glyph = '󰱺', hl = 'MiniIconsYellow' },
+          ['config.eslint.ts'] = { glyph = '󰱺', hl = 'MiniIconsYellow' },
           ['.node-version'] = { glyph = '', hl = 'MiniIconsGreen' },
           ['.prettierrc'] = { glyph = '', hl = 'MiniIconsPurple' },
           ['.yarnrc.yml'] = { glyph = '', hl = 'MiniIconsBlue' },
