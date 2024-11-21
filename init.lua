@@ -44,6 +44,7 @@ require('lazy').setup({
   require 'plugins.arrow',
   require 'plugins.rest',
   require 'plugins.render-markdown',
+  require 'plugins.neogit',
   require 'kickstart.plugins.debug',
   require 'kickstart.plugins.indent_line',
   require 'kickstart.plugins.lint',
