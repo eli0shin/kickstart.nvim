@@ -170,7 +170,7 @@ return { -- LSP Configuration & Plugins
       --
       -- But for many setups, the LSP (`tsserver`) will work just fine
       ts_ls = {
-        enabled = false,
+        enabled = true,
         single_file_support = true,
       },
       htmx = {},
@@ -193,7 +193,9 @@ return { -- LSP Configuration & Plugins
         },
       },
       -- copied from lazyvim config
-      vtsls = {},
+      vtsls = {
+        enabled = false,
+      },
     }
     -- gleam lsp doesn't work well with mason. Install it on it's own.
     require('lspconfig').gleam.setup {}
