@@ -8,7 +8,7 @@ return {
     }
   end,
   keys = { {
-    '<leader>gr',
+    '<leader>gru',
     '<cmd>GrugFar<cr>',
     { desc = '[G][r]ug Far' },
   } },

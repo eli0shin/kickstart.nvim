@@ -47,6 +47,10 @@ return { -- Autocompletion
         end,
       },
       completion = { completeopt = 'menu,menuone,noinsert' },
+      -- Let's try this out, gopls selects a completion item which is usually not the one
+      -- that I want and is in the middle of the list. Turning autoselect off may
+      -- make this less annoying.
+      preselect = cmp.PreselectMode.None,
 
       -- For an understanding of why these mappings were
       -- chosen, you will need to read `:help ins-completion`
