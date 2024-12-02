@@ -3,7 +3,7 @@ return {
   dependencies = { 'nvim-treesitter/nvim-treesitter' },
   config = function()
     require('logsitter').setup {
-      path_format = 'default',
+      path_format = 'short',
       prefix = '[LS] ->',
       separator = '->',
     }
