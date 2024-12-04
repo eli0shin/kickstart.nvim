@@ -8,8 +8,8 @@ return {
     }
   end,
   keys = { {
-    '<leader>gru',
+    '<leader>gk',
     '<cmd>GrugFar<cr>',
-    { desc = '[G][r]ug Far' },
+    { desc = '[G]rug Far' },
   } },
 }
