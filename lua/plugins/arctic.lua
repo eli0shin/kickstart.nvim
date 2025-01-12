@@ -1,5 +1,5 @@
 return {
-  'rockyzhang24/arctic.nvim',
+  'eli0shin/arctic.nvim',
   dependencies = { 'rktjmp/lush.nvim' },
   name = 'arctic',
   branch = 'main',
