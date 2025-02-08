@@ -37,7 +37,7 @@ vim.opt.smartcase = true
 vim.opt.signcolumn = 'yes'
 
 -- Decrease update time
-vim.opt.updatetime = 250
+vim.opt.updatetime = 50
 
 -- Decrease mapped sequence wait time
 -- Displays which-key popup sooner
@@ -72,8 +72,16 @@ vim.opt.hlsearch = true
 -- optionally enable 24-bit colour
 vim.opt.termguicolors = true
 
+-- disable annoying swap file things
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.undodir = os.getenv 'HOME' .. '/.vim/undodir'
+vim.opt.undofile = true
+
 -- set the tab width to 2
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2
 vim.opt.expandtab = false
+
+vim.opt.smartindent = true

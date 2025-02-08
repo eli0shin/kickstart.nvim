@@ -1,6 +1,7 @@
 return {
   'm4xshen/autoclose.nvim',
   event = 'VeryLazy',
+  enabled = false,
   opts = {
     keys = {
       ['('] = { escape = false, close = true, pair = '()' },
