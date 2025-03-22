@@ -48,6 +48,8 @@ require('lazy').setup({
   require 'plugins.grug-far',
   require 'plugins.no-neck-pain',
   require 'plugins.arctic',
+  require 'plugins.avante',
+  require 'plugins.copilot',
   require 'plugins.tailwind-tools',
   require 'kickstart.plugins.debug',
   require 'kickstart.plugins.indent_line',
