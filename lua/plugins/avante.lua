@@ -11,7 +11,6 @@ return {
   lazy = true,
   version = '*', -- Set this to "*" to always pull the latest release version, or set it to false to update to the latest code changes.
   opts = avante_opts,
-  -- api_key_name = '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',
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
   build = 'make',
   -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
