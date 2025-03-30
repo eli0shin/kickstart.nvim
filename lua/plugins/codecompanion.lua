@@ -38,12 +38,12 @@ return {
       },
 
       -- Enable logging for troubleshooting
-      log_level = 'INFO', -- Set to "DEBUG" if you need more detailed logs
+      log_level = 'ERROR', -- Set to "DEBUG" if you need more detailed logs
     }
 
     -- Set up keymaps for codecompanion
     vim.keymap.set('n', '<leader>cc', '<cmd>CodeCompanionChat<cr>', { desc = 'Open CodeCompanion Chat' })
-    vim.keymap.set('n', '<leader>ct', '<cmd>CodeCompanionToggle<cr>', { desc = 'Toggle CodeCompanion' })
+    vim.keymap.set('n', '<leader>ca', '<cmd>CodeCompanionActions<cr>', { desc = 'Open CodeCompanion Chat' })
     vim.keymap.set('v', '<leader>cp', '<cmd>CodeCompanionPrompt<cr>', { desc = 'Send selection to CodeCompanion' })
   end,
 }
