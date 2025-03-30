@@ -52,6 +52,7 @@ require('lazy').setup({
   require 'plugins.copilot',
   require 'plugins.aider',
   require 'plugins.tailwind-tools',
+  require 'plugins.codecompanion',
   require 'kickstart.plugins.debug',
   require 'kickstart.plugins.indent_line',
   require 'kickstart.plugins.lint',
