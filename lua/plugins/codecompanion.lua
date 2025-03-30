@@ -9,15 +9,6 @@ else
       openrouter = {
         api_key = os.getenv 'OPENROUTER_API_KEY', -- Set your API key in environment variable
         model = 'anthropic/claude-3-7-sonnet-20240307',
-        -- parameters = {
-        --   temperature = 0.1,
-        --   top_p = 0.95,
-        --   max_tokens = 4000,
-        -- },
-        -- OpenRouter specific settings
-        -- custom_endpoint_parameters = {
-        --   route = 'fallback', -- or "fastest" or "lowest_latency" etc.
-        -- },
       },
     },
     -- Set OpenRouter as the default adapter

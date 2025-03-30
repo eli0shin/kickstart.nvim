@@ -6,4 +6,4 @@ nvim
 spell/
 lazy-lock.json
 .aider*
-lua/plugins/codecompanion-local.lua
+*/**/*-local.lua
