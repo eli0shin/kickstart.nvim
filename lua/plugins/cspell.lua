@@ -1,8 +1,8 @@
 -- Define the tools to be installed and the key mapping
 local installed_tools = {
-  'codespell',
+  -- 'codespell',
   -- 'misspell',
-  -- 'cspell'
+  'cspell',
 }
 local key_mapping = '<leader>cn'
 
