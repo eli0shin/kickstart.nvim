@@ -15,6 +15,12 @@ return { -- Collection of various small independent plugins/modules
     -- - sd'   - [S]urround [D]elete [']quotes
     -- - sr)'  - [S]urround [R]eplace [)] [']
     require('mini.surround').setup()
+    require('mini.bufremove').setup()
+
+    vim.keymap.set('n', '<leader>bd', ':lua MiniBufremove.delete()<CR>', {
+      silent = true,
+      desc = 'Close the current buffer without changing window layout',
+    })
 
     -- Simple and easy statusline.
     --  You could remove this setup call if you don't like it,
