@@ -38,6 +38,7 @@ require('lazy').setup({
   require 'plugins.no-neck-pain',
   require 'plugins.arctic',
   require 'plugins.avante',
+  require 'plugins.mcp-hub',
   require 'plugins.aider',
   require 'plugins.tailwind-tools',
   require 'plugins.codecompanion',
