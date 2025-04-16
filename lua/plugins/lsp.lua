@@ -173,8 +173,10 @@ return { -- LSP Configuration & Plugins
         enabled = true,
         single_file_support = true,
       },
-      htmx = {},
+      htmx = { enabled = false },
       html = {},
+      jdtls = {},
+      bashls = {},
       --
       -- gleam = {},
 
@@ -199,6 +201,7 @@ return { -- LSP Configuration & Plugins
     }
     -- gleam lsp doesn't work well with mason. Install it on it's own.
     require('lspconfig').gleam.setup {}
+    require('lspconfig').fish_lsp.setup {}
 
     -- Ensure the servers and tools above are installed
     --  To check the current status of installed tools and/or manually install

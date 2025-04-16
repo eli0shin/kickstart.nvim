@@ -8,7 +8,7 @@ vim.g.github_enterprise_urls = { 'https://github.paypal.com' }
 --  To check the current status of your plugins, run
 --    :Lazy
 require('lazy').setup({
-  'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
+  'tpope/vim-sleuth',
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
   require 'plugins.comment',
@@ -23,7 +23,6 @@ require('lazy').setup({
   require 'plugins.treesitter',
   require 'plugins.zen-mode',
   require 'plugins.octo',
-  require 'plugins.telescope-file-browser',
   require 'plugins.leap',
   require 'plugins.typescript-tools',
   require 'plugins.jester',
@@ -47,21 +46,6 @@ require('lazy').setup({
   require 'kickstart.plugins.lint',
 }, {
   ui = {
-    -- If you are using a Nerd Font: set icons to an empty table which will use the
-    -- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
-    icons = vim.g.have_nerd_font and {} or {
-      cmd = '⌘',
-      config = '🛠',
-      event = '📅',
-      ft = '📂',
-      init = '⚙',
-      keys = '🗝',
-      plugin = '🔌',
-      require = '🌙',
-      source = '📄',
-      start = '🚀',
-      task = '📌',
-      lazy = '💤 ',
-    },
+    icons = {},
   },
 })

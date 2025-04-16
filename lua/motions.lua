@@ -48,53 +48,8 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 map('n', '<Leader>h', ':split<CR>', { silent = true })
 map('n', '<Leader>v', ':vsplit<CR>', { silent = true })
 
--- Resize windows
-map('n', '<Leader><Left>', ':vertical resize -20<CR>', { silent = true })
-map('n', '<Leader><Right>', ':vertical resize +20<CR>', { silent = true })
-map('n', '<Leader><Up>', ':resize +10<CR>', { silent = true })
-map('n', '<Leader><Down>', ':resize -10<CR>', { silent = true })
-
--- remap ; to  ; in normal mode
+-- remap ; to  : in normal mode
 vim.keymap.set({ 'n', 'x', 'o', 'v' }, ';', ':', { remap = true })
 
 -- Set the keymap to toggle ZenMode
 vim.api.nvim_set_keymap('n', '<leader>z', ':ZenMode<CR>', { noremap = true, silent = true, desc = 'Toggle Zen Mode' })
-
--- Add :Rebase branch_name command
-vim.api.nvim_create_user_command('Rebase', function(opts)
-  local branch = opts.args
-  if branch == '' then
-    print 'Error: Please provide a branch name. Usage: :Rebase <branch>'
-    return
-  end
-
-  local function run_git_command(cmd)
-    local handle = io.popen(cmd)
-    if handle then
-      local result = handle:read '*a'
-      handle:close()
-      print(result)
-    else
-      print('Error running command: ' .. cmd)
-    end
-  end
-
-  run_git_command('git checkout ' .. branch)
-  run_git_command 'git pull'
-  run_git_command 'git checkout -'
-  run_git_command('git rebase ' .. branch)
-end, {
-  nargs = 1, -- Require exactly one argument (branch name)
-  complete = function()
-    -- Autocomplete branch names
-    local branches = {}
-    local handle = io.popen "git branch --format='%(refname:short)' 2>/dev/null"
-    if handle then
-      for line in handle:lines() do
-        table.insert(branches, line)
-      end
-      handle:close()
-    end
-    return branches
-  end,
-})

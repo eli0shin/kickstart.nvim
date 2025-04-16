@@ -71,10 +71,15 @@ return { -- Fuzzy Finder (files, lsp, etc)
     vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
     vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
     -- vim.keymap.set('n', '<leader>saf', '<cmd>Telescope find_files hidden=true<cr>', { desc = '[S]earch [A]ll [F]iles' })
+    vim.keymap.set('n', '<leader>spf', function()
+      require('telescope.builtin').find_files {
+        no_ignore = true,
+      }
+    end, { desc = '[S]earch [P]roject [F]iles' })
     vim.keymap.set('n', '<leader>saf', function()
       require('telescope.builtin').find_files {
         hidden = true,
-        glob = '!**/.git/*',
+        -- glob = '!.git/**/*',
       }
     end, { desc = '[S]earch [A]ll [F]iles' })
     vim.keymap.set('n', '<leader>sag', function()
