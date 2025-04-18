@@ -175,7 +175,7 @@ return { -- LSP Configuration & Plugins
       },
       htmx = { enabled = false },
       html = {},
-      jdtls = {},
+      -- jdtls = {},
       bashls = {},
       --
       -- gleam = {},

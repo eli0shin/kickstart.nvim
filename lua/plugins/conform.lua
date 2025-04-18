@@ -19,7 +19,8 @@ end, {
 
 return { -- Autoformat
   'stevearc/conform.nvim',
-  lazy = false,
+  lazy = true,
+  event = 'VeryLazy',
   keys = {
     {
       '<leader>f',
