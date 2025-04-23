@@ -1,10 +1,4 @@
-local ok, local_config = pcall(require, 'plugins.copilot-model-local')
-local copilot_model
-if ok and local_config then
-  copilot_model = local_config
-else
-  copilot_model = nil
-end
+local with_local_config = require 'utils.with_local_config'
 
 local prompts = {
   -- Code related prompts
@@ -34,12 +28,11 @@ return {
       { 'nvim-lua/plenary.nvim', branch = 'master' }, -- for curl, log and async functions
     },
     build = 'make tiktoken', -- Only on MacOS or Linux
-    opts = {
+    opts = with_local_config('plugins.copilot-local', {
       question_header = '## User ',
       answer_header = '## Copilot ',
       error_header = '## Error ',
       prompts = prompts,
-      model = copilot_model,
       mappings = {
         -- Use tab for completion
         complete = {
@@ -71,7 +64,7 @@ return {
           normal = 'g?',
         },
       },
-    },
+    }),
     config = function(_, opts)
       local chat = require 'CopilotChat'
       chat.setup(opts)
