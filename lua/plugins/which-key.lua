@@ -22,7 +22,6 @@ return { -- Useful plugin to show you pending keybinds.
       { '<leader>dvc', '<cmd>DiffviewClose<cr>', desc = '[C]lose' },
       { '<leader>dvo', '<cmd>DiffviewOpen<cr>', desc = '[O]pen' },
       { '<leader>dvi', ':DiffviewOpen ', desc = '[O]pen' },
-      { '<leader>g', group = '[G]it' },
       { '<leader>t', group = '[T]urbo' },
       { '<leader>tc', '<cmd>LogsitterClearBuf<cr>', desc = '[C]lear File' },
       { '<leader>tl', '<cmd>Logsitter<cr>', desc = '[L]og' },

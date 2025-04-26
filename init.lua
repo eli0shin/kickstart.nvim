@@ -17,7 +17,7 @@ require('lazy').setup({
   require 'plugins.telescope',
   require 'plugins.lsp',
   require 'plugins.conform',
-  require 'plugins.nvim-cmp',
+  require 'plugins.blink-cmp',
   require 'plugins.todo-comments',
   require 'plugins.mini',
   require 'plugins.treesitter',

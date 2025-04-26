@@ -21,6 +21,15 @@ local prompts = {
 
 return {
   {
+    'zbirenbaum/copilot.lua',
+
+    cmd = 'Copilot',
+    event = 'VeryLazy',
+    config = function()
+      require('copilot').setup {}
+    end,
+  },
+  {
     'CopilotC-Nvim/CopilotChat.nvim',
     lazy = true,
     dependencies = {
