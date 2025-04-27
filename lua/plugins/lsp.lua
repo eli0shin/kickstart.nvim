@@ -111,11 +111,11 @@ return { -- LSP Configuration & Plugins
         --  See `:help K` for why this keymap.
         -- map('K', vim.lsp.buf.hover, 'Hover Documentation')
         map('K', function()
-          vim.lsp.buf.hover { border = 'solid' }
+          vim.lsp.buf.hover { border = 'rounded' }
         end, 'Hover Documentation')
 
         map('<C-k>', function()
-          vim.lsp.buf.signature_help { border = 'shadow' }
+          vim.lsp.buf.signature_help { border = 'rounded' }
         end, 'Signature Help')
 
         -- WARN: This is not Goto Definition, this is Goto Declaration.
