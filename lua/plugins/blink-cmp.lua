@@ -94,5 +94,6 @@ return { -- Autocompletion
 
     -- Shows a signature help window while you type arguments for a function
     signature = { enabled = true },
+    completions = { blink = { enabled = true } },
   },
 }
