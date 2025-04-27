@@ -11,11 +11,45 @@ return {
       width = 40, -- Set chat window width to 50% of screen by default
     },
     mappings = {
+      --- @class AvanteConflictMappings
+      diff = {
+        ours = 'co',
+        theirs = 'ct',
+        all_theirs = 'ca',
+        both = 'cb',
+        cursor = 'cc',
+        next = ']x',
+        prev = '[x',
+      },
       suggestion = {
         accept = '<C-y>',
         next = '<C-n>',
         prev = '<C-y>',
         dismiss = '<C-x>',
+      },
+      jump = {
+        next = ']]',
+        prev = '[[',
+      },
+      submit = {
+        normal = '<CR>',
+        insert = '<C-s>',
+      },
+      cancel = {
+        normal = { '<C-c>' },
+        insert = { '<C-c>' },
+      },
+      sidebar = {
+        apply_all = 'A',
+        apply_cursor = 'a',
+        retry_user_request = 'r',
+        edit_user_request = 'e',
+        switch_windows = '<Tab>',
+        reverse_switch_windows = '<S-Tab>',
+        remove_file = 'd',
+        add_file = '@',
+        close = { '<C-x>' },
+        close_from_input = { normal = '<C-x>', insert = '<C-x>' },
       },
     },
     behaviour = {
@@ -27,7 +61,7 @@ return {
       minimize_diff = true, -- Whether to remove unchanged lines when applying a code block
       enable_token_counting = true, -- Whether to enable token counting. Default to true.
       enable_cursor_planning_mode = true, -- Whether to enable Cursor Planning Mode. Default to false.
-      enable_claude_text_editor_tool_mode = true, -- Whether to enable Claude Text Editor Tool Mode.
+      enable_claude_text_editor_tool_mode = false, -- Whether to enable Claude Text Editor Tool Mode.
     },
   }),
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
