@@ -26,6 +26,19 @@ return { -- Autocompletion
         --     require('luasnip.loaders.from_vscode').lazy_load()
         --   end,
         -- },
+        --
+        {
+          'saghen/blink.compat',
+          lazy = true,
+          opts = {},
+          config = function()
+            -- monkeypatch cmp.ConfirmBehavior for Avante
+            require('cmp').ConfirmBehavior = {
+              Insert = 'insert',
+              Replace = 'replace',
+            }
+          end,
+        },
       },
       opts = {},
     },
@@ -75,9 +88,27 @@ return { -- Autocompletion
     },
 
     sources = {
-      default = { 'lsp', 'path', 'snippets', 'lazydev' },
+      default = { 'lsp', 'path', 'snippets', 'lazydev', 'avante_commands', 'avante_mentions', 'avante_files' },
       providers = {
         lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
+        avante_commands = {
+          name = 'avante_commands',
+          module = 'blink.compat.source',
+          score_offset = 90, -- show at a higher priority than lsp
+          opts = {},
+        },
+        avante_files = {
+          name = 'avante_commands',
+          module = 'blink.compat.source',
+          score_offset = 100, -- show at a higher priority than lsp
+          opts = {},
+        },
+        avante_mentions = {
+          name = 'avante_mentions',
+          module = 'blink.compat.source',
+          score_offset = 1000, -- show at a higher priority than lsp
+          opts = {},
+        },
       },
     },
 
