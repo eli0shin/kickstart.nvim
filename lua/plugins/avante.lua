@@ -122,6 +122,10 @@ return {
           require('mcphub.extensions.avante').mcp_tool(),
         }
       end,
+      web_search_engine = {
+        provider = 'brave', -- tavily, serpapi, searchapi, google, kagi, brave, or searxng
+        proxy = nil, -- proxy support, e.g., http://127.0.0.1:7890
+      },
       disabled_tools = {
         'list_files',
         'search_files',

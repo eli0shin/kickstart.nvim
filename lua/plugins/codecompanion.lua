@@ -1,5 +1,5 @@
 local with_local_config = require 'utils.with_local_config'
-
+vim.g.codecompanion_auto_tool_mode = true
 return {
   'olimorris/codecompanion.nvim',
   event = 'VeryLazy',
@@ -15,15 +15,18 @@ return {
         mcphub = {
           callback = 'mcphub.extensions.codecompanion',
           opts = {
-            show_result_in_chat = true, -- Show mcp tool results in chat
+            show_result_in_chat = false, -- Show mcp tool results in chat
             make_vars = true, -- Convert resources to #variables
             make_slash_commands = true, -- Add prompts as /slash commands
           },
         },
       },
       display = {
-        window = {
-          position = 'left',
+        chat = {
+          window = {
+            position = 'left',
+            full_height = true, -- This ensures proper window positioning with splitright=true
+          },
         },
       },
       diff = {
