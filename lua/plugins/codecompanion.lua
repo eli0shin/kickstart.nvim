@@ -9,7 +9,27 @@ return {
     'ravitemer/mcphub.nvim',
   },
   config = function()
-    require('codecompanion').setup(with_local_config('plugins.codecompanion-local', {}))
+    require 'mcphub.extensions.codecompanion'
+    require('codecompanion').setup(with_local_config('plugins.codecompanion-local', {
+      extensions = {
+        mcphub = {
+          callback = 'mcphub.extensions.codecompanion',
+          opts = {
+            show_result_in_chat = true, -- Show mcp tool results in chat
+            make_vars = true, -- Convert resources to #variables
+            make_slash_commands = true, -- Add prompts as /slash commands
+          },
+        },
+      },
+      display = {
+        window = {
+          position = 'left',
+        },
+      },
+      diff = {
+        enabled = false,
+      },
+    }))
 
     vim.keymap.set('n', '<leader>cc', '<cmd>CodeCompanionChat<cr>', { desc = 'Open CodeCompanion Chat' })
     vim.keymap.set('n', '<leader>ca', '<cmd>CodeCompanionActions<cr>', { desc = 'Open CodeCompanion Actions' })
