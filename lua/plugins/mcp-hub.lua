@@ -10,6 +10,9 @@ return {
   -- build = "bundled_build.lua",  -- Use this and set use_bundled_binary = true in opts  (see Advanced configuration)
   config = function()
     require('mcphub').setup {
+      auto_approve = true, -- Auto approve mcp tool calls
+      auto_toggle_mcp_servers = true, -- Let LLMs start and stop MCP servers automatically
+      -- Extensions configuration
       extensions = {
         avante = {
           make_slash_commands = true, -- make /slash commands from MCP server prompts
