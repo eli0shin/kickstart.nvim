@@ -15,7 +15,7 @@ return {
     'MunifTanjim/nui.nvim',
     --- The below dependencies are optional,
     'nvim-telescope/telescope.nvim', -- for file_selector provider telescope
-    'hrsh7th/nvim-cmp', -- autocompletion for avante commands and mentions
+    -- 'hrsh7th/nvim-cmp', -- autocompletion for avante commands and mentions
     'nvim-tree/nvim-web-devicons', -- or echasnovski/mini.icons
     'zbirenbaum/copilot.lua', -- for providers='copilot'
     'ravitemer/mcphub.nvim',
@@ -50,7 +50,7 @@ return {
     require('avante').setup(with_local_config('plugins.avante-local', {
       windows = {
         position = 'left',
-        width = 40, -- Set chat window width to 50% of screen by default
+        width = 40,
       },
       mappings = {
         --- @class AvanteConflictMappings
@@ -66,7 +66,7 @@ return {
         suggestion = {
           accept = '<C-y>',
           next = '<C-n>',
-          prev = '<C-y>',
+          prev = '<C-p>',
           dismiss = '<C-x>',
         },
         jump = {
@@ -99,10 +99,11 @@ return {
         auto_set_highlight_group = true,
         auto_set_keymaps = true,
         auto_apply_diff_after_generation = true,
-        support_paste_from_clipboard = false,
+        support_paste_from_clipboard = true,
+        jump_result_buffer_on_finish = false,
         minimize_diff = true, -- Whether to remove unchanged lines when applying a code block
         enable_token_counting = true, -- Whether to enable token counting. Default to true.
-        enable_cursor_planning_mode = false, -- Whether to enable Cursor Planning Mode. Default to false.
+        enable_cursor_planning_mode = true, -- Whether to enable Cursor Planning Mode. Default to false.
         enable_claude_text_editor_tool_mode = false, -- Whether to enable Claude Text Editor Tool Mode.
       },
       -- other config
