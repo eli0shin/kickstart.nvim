@@ -4,7 +4,9 @@ return {
   'yetone/avante.nvim',
   event = 'VeryLazy',
   lazy = true,
-  enabled = true,
+  enabled = function()
+    return vim.g.vscode == nil
+  end,
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
   build = 'make',
   -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
@@ -45,13 +47,16 @@ return {
       ft = { 'markdown', 'Avante' },
     },
   },
-
   config = function()
     require('avante').setup(with_local_config('plugins.avante-local', {
       windows = {
         position = 'left',
         width = 40,
       },
+      diff = {
+        autojump = true,
+      },
+      hints = { enabled = false },
       mappings = {
         --- @class AvanteConflictMappings
         diff = {
@@ -138,6 +143,9 @@ return {
         'rename_dir',
         'delete_dir',
         'bash',
+        'run_python',
+        'create',
+        'replace_in_file',
       },
     }))
   end,
