@@ -144,7 +144,6 @@ return {
         'bash',
         'run_python',
         'create',
-        'replace_in_file',
       },
     }))
   end,
