@@ -1,5 +1,7 @@
 local with_local_config = require 'utils.with_local_config'
+
 vim.g.codecompanion_auto_tool_mode = true
+
 return {
   'olimorris/codecompanion.nvim',
   event = 'VeryLazy',
@@ -7,10 +9,19 @@ return {
     'nvim-lua/plenary.nvim',
     'nvim-treesitter/nvim-treesitter',
     'ravitemer/mcphub.nvim',
+    { 'echasnovski/mini.nvim', version = '*' },
+    {
+      'MeanderingProgrammer/render-markdown.nvim',
+      opts = {
+        file_types = { 'markdown', 'codecompanion' },
+      },
+      ft = { 'markdown' },
+    },
   },
   config = function()
     require 'mcphub.extensions.codecompanion'
     require('codecompanion').setup(with_local_config('plugins.codecompanion-local', {
+      log_level = 'ERROR',
       extensions = {
         mcphub = {
           callback = 'mcphub.extensions.codecompanion',
@@ -26,12 +37,26 @@ return {
           window = {
             position = 'left',
             full_height = true, -- This ensures proper window positioning with splitright=true
+            width = 0.4,
           },
+          show_references = false, -- Show references (from slash commands and variables) in the chat buffer?
         },
       },
       diff = {
         enabled = false,
       },
+      strategies = {
+        chat = {
+          tools = {
+            opts = {
+              auto_submit_errors = true, -- Send any errors to the LLM automatically?
+              auto_submit_success = true, -- Send any successful output to the LLM automatically?
+            },
+          },
+        },
+      },
+      job_start_delay = 100, -- Delay in milliseconds between cmd tools
+      submit_delay = 100, -- Delay in milliseconds before auto-submitting the chat buffer
     }))
 
     vim.keymap.set('n', '<leader>cc', '<cmd>CodeCompanionChat<cr>', { desc = 'Open CodeCompanion Chat' })

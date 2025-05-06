@@ -3,6 +3,8 @@ return { -- Autocompletion
   event = 'VimEnter',
   version = '1.*',
   dependencies = {
+    -- Copilot for suggestions
+    'zbirenbaum/copilot.lua',
     -- Snippet Engine
     {
       'L3MON4D3/LuaSnip',
@@ -82,14 +84,14 @@ return { -- Autocompletion
     },
 
     completion = {
-      -- By default, you may press `<c-space>` to show the documentation.
-      -- Optionally, set `auto_show = true` to show the documentation after a delay.
-      documentation = { auto_show = false, auto_show_delay_ms = 500 },
+      -- Show documentation panel automatically
+      documentation = { auto_show = true, auto_show_delay_ms = 100 },
     },
 
     sources = {
-      default = { 'lsp', 'path', 'snippets', 'lazydev', 'avante_commands', 'avante_mentions', 'avante_files' },
+      default = { 'copilot', 'lsp', 'path', 'snippets', 'lazydev', 'avante_commands', 'avante_mentions', 'avante_files' },
       providers = {
+        copilot = { module = 'blink.compat.source', score_offset = 1000, name = 'copilot' },
         lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
         avante_commands = {
           name = 'avante_commands',

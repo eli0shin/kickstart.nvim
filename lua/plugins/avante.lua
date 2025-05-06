@@ -39,7 +39,6 @@ return {
       },
     },
     {
-      -- Make sure to set this up properly if you have lazy=true
       'MeanderingProgrammer/render-markdown.nvim',
       opts = {
         file_types = { 'markdown', 'Avante', 'codecompanion' },
@@ -108,7 +107,7 @@ return {
         jump_result_buffer_on_finish = false,
         minimize_diff = true, -- Whether to remove unchanged lines when applying a code block
         enable_token_counting = true, -- Whether to enable token counting. Default to true.
-        enable_cursor_planning_mode = true, -- Whether to enable Cursor Planning Mode. Default to false.
+        enable_cursor_planning_mode = false, -- Whether to enable Cursor Planning Mode. Default to false.
         enable_claude_text_editor_tool_mode = false, -- Whether to enable Claude Text Editor Tool Mode.
       },
       -- other config
