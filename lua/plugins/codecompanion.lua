@@ -9,6 +9,7 @@ return {
     'nvim-lua/plenary.nvim',
     'nvim-treesitter/nvim-treesitter',
     'ravitemer/mcphub.nvim',
+    'ravitemer/codecompanion-history.nvim',
     { 'echasnovski/mini.nvim', version = '*' },
     {
       'MeanderingProgrammer/render-markdown.nvim',
@@ -29,6 +30,18 @@ return {
             show_result_in_chat = false, -- Show mcp tool results in chat
             make_vars = true, -- Convert resources to #variables
             make_slash_commands = true, -- Add prompts as /slash commands
+          },
+        },
+        history = {
+          enabled = true,
+          opts = {
+            keymap = 'gh',
+            auto_generate_title = true, -- Automatically generate a title for the history entry
+            continue_last_chat = false,
+            delete_on_clearing_chat = false,
+            picker = 'telescope',
+            enable_logging = false,
+            dir_to_save = vim.fn.stdpath 'data' .. '/codecompanion_history',
           },
         },
       },
