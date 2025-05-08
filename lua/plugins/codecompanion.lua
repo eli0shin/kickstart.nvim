@@ -27,7 +27,7 @@ return {
         mcphub = {
           callback = 'mcphub.extensions.codecompanion',
           opts = {
-            show_result_in_chat = false, -- Show mcp tool results in chat
+            show_result_in_chat = true, -- Show mcp tool results in chat
             make_vars = true, -- Convert resources to #variables
             make_slash_commands = true, -- Add prompts as /slash commands
           },
@@ -53,6 +53,7 @@ return {
             width = 0.4,
           },
           show_references = false, -- Show references (from slash commands and variables) in the chat buffer?
+          show_settings = true,
         },
       },
       diff = {
@@ -68,8 +69,8 @@ return {
           },
         },
       },
-      job_start_delay = 100, -- Delay in milliseconds between cmd tools
-      submit_delay = 100, -- Delay in milliseconds before auto-submitting the chat buffer
+      job_start_delay = 50, -- Delay in milliseconds between cmd tools
+      submit_delay = 50, -- Delay in milliseconds before auto-submitting the chat buffer
     }))
 
     vim.keymap.set('n', '<leader>cc', '<cmd>CodeCompanionChat<cr>', { desc = 'Open CodeCompanion Chat' })
