@@ -54,3 +54,13 @@ end, {
     return branches
   end,
 })
+
+vim.api.nvim_create_user_command('Messages', function()
+  local out = vim.api.nvim_exec2('messages', { output = true }).output
+  local buf = vim.api.nvim_create_buf(false, true)
+
+  vim.api.nvim_buf_set_lines(buf, 0, -1, false, vim.split(out, '\n'))
+  vim.bo[buf].filetype = 'msglog'
+  vim.cmd 'botright 10split'
+  vim.api.nvim_win_set_buf(0, buf)
+end, {})

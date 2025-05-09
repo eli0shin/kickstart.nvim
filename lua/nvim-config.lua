@@ -87,4 +87,4 @@ vim.opt.expandtab = false
 vim.opt.smartindent = true
 
 -- disable pesky messages that require pressing enter
-vim.opt.messagesopt = { 'wait:100', 'history:500' }
+vim.opt.messagesopt = { 'wait:0', 'history:500' }
