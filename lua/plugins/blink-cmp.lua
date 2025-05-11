@@ -3,8 +3,6 @@ return { -- Autocompletion
   event = 'VimEnter',
   version = '1.*',
   dependencies = {
-    -- Copilot for suggestions
-    'zbirenbaum/copilot.lua',
     -- Snippet Engine
     {
       'L3MON4D3/LuaSnip',
@@ -99,28 +97,6 @@ return { -- Autocompletion
       --
       -- -- Per-filetype completion settings
     },
-
-    -- sources = {
-    --   default = {
-    --     'copilot',
-    --     'lsp',
-    --     'path',
-    --     'snippets',
-    --     -- 'lazydev',
-    --     -- 'avante_commands',
-    --     -- 'avante_mentions',
-    --     -- 'avante_files',
-    --   },
-    --   -- Add specific sources for codecompanion filetype
-    --   per_filetype = {
-    --     codecompanion = { 'buffer' },
-    --     lua = { 'lazydev' },
-    --   },
-    --   providers = {
-    --     copilot = { module = 'blink-copilot', score_offset = 1000 },
-    --     lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
-    --   },
-    -- },
 
     snippets = { preset = 'luasnip' },
 

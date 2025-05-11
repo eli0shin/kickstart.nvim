@@ -38,7 +38,6 @@ require('lazy').setup({
   require 'plugins.arctic',
   require 'plugins.mcp-hub',
   require 'plugins.copilot',
-  require 'plugins.blink-copilot',
   require 'plugins.blink-compat-init',
   require 'plugins.blink-cmp',
   require 'plugins.avante',
