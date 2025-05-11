@@ -17,12 +17,6 @@ return { -- Useful plugin to show you pending keybinds.
       { '<leader>s_', hidden = true },
       { '<leader>w', group = '[W]orkspace' },
       { '<leader>w_', hidden = true },
-      { '<leader>t', group = '[T]urbo' },
-      { '<leader>tc', '<cmd>LogsitterClearBuf<cr>', desc = '[C]lear File' },
-      { '<leader>tl', '<cmd>Logsitter<cr>', desc = '[L]og' },
-      { '<leader>o', '<cmd>Oil<cr>', desc = '[O]il' },
-      { '<leader>m', group = '[M]arkdown' },
-      { '<leader>mt', '<cmd>RenderMarkdown toggle<cr>', desc = '[T]oggle' },
     }
   end,
 }

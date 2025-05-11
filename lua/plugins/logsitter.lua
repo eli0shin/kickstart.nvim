@@ -2,7 +2,6 @@ return {
   'gaelph/logsitter.nvim',
   dependencies = { 'nvim-treesitter/nvim-treesitter' },
   lazy = true,
-  event = 'BufEnter',
   config = function()
     require('logsitter').setup {
       path_format = 'short',
@@ -10,4 +9,9 @@ return {
       separator = '->',
     }
   end,
+  keys = {
+    { '<leader>t', group = '[T]urbo' },
+    { '<leader>tl', '<cmd>Logsitter<cr>', desc = '[L]og' },
+    { '<leader>tc', '<cmd>LogsitterClearBuf<cr>', desc = '[C]lear File' },
+  },
 }
