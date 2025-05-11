@@ -16,6 +16,7 @@ local js_based_languages = {
 return {
   -- NOTE: Yes, you can install new plugins here!
   'mfussenegger/nvim-dap',
+  lazy = true,
   -- NOTE: And you can specify dependencies as well
   dependencies = {
     -- Creates a beautiful debugger UI
@@ -80,30 +81,72 @@ return {
     },
   },
   keys = function(_, keys)
-    local dap = require 'dap'
-    local dapui = require 'dapui'
     return {
       -- Basic debugging keymaps, feel free to change to your liking!
-      { '<leader>db', dap.continue, desc = 'Debug: Start/Continue' },
-      { '<leader>dq', dap.terminate, desc = 'Debug: Quit' },
-      { '<leader>di', dap.step_into, desc = 'Debug: Step Into' },
-      { '<leader>dn', dap.step_over, desc = 'Debug: Step Over' },
-      { '<leader>do', dap.step_out, desc = 'Debug: Step Out' },
-      { '<leader>b', dap.toggle_breakpoint, desc = 'Debug: Toggle Breakpoint' },
+      {
+        '<leader>db',
+        function()
+          require('dap').continue()
+        end,
+        desc = 'Debug: Start/Continue',
+      },
+      {
+        '<leader>dq',
+        function()
+          require('dap').terminate()
+        end,
+        desc = 'Debug: Quit',
+      },
+      {
+        '<leader>di',
+        function()
+          require('dap').step_into()
+        end,
+        desc = 'Debug: Step Into',
+      },
+      {
+        '<leader>dn',
+        function()
+          require('dap').step_over()
+        end,
+        desc = 'Debug: Step Over',
+      },
+      {
+        '<leader>do',
+        function()
+          require('dap').step_out()
+        end,
+        desc = 'Debug: Step Out',
+      },
+      {
+        '<leader>b',
+        function()
+          require('dap').toggle_breakpoint()
+        end,
+        desc = 'Debug: Toggle Breakpoint',
+      },
       {
         '<leader>B',
         function()
+          local dap = require 'dap'
           dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
         end,
         desc = 'Debug: Set Breakpoint',
       },
       -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
-      { '<leader>dls', dapui.toggle, desc = 'Debug: See last session result.' },
+      {
+        '<leader>dls',
+        function()
+          require('dapui').toggle()
+        end,
+        desc = 'Debug: See last session result.',
+      },
       {
         '<leader>dba',
         function()
           if vim.fn.filereadable '.vscode/launch.json' then
             local dap_vscode = require 'dap.ext.vscode'
+            local dap = require 'dap'
             dap_vscode.load_launchjs(nil, {
               ['pwa-node'] = js_based_languages,
               ['node'] = js_based_languages,

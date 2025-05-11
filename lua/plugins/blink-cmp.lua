@@ -35,6 +35,7 @@ return { -- Autocompletion
           opts = {},
           config = function()
             -- monkeypatch cmp.ConfirmBehavior for Avante
+            -- Note: The main setup of blink.compat is in blink-compat-init.lua
             require('cmp').ConfirmBehavior = {
               Insert = 'insert',
               Replace = 'replace',
@@ -85,34 +86,41 @@ return { -- Autocompletion
 
     completion = {
       -- Show documentation panel automatically
-      documentation = { auto_show = true, auto_show_delay_ms = 100 },
+      documentation = { auto_show = true, auto_show_delay_ms = 50 },
+
+      -- -- Global trigger settings - make everything faster
+      -- trigger = {
+      --   auto = true, -- Enable auto-triggering globally
+      --   delay_ms = 0, -- No delay for all completions
+      --   debounce_ms = 0, -- No debounce time (instant triggering)
+      --   auto_after_trigger = 0, -- Show after typing any character
+      --   throttle_ms = 30, -- Very small throttle to prevent flicker
+      -- },
+      --
+      -- -- Per-filetype completion settings
     },
 
-    sources = {
-      default = { 'copilot', 'lsp', 'path', 'snippets', 'lazydev', 'avante_commands', 'avante_mentions', 'avante_files' },
-      providers = {
-        copilot = { module = 'blink.compat.source', score_offset = 1000, name = 'copilot' },
-        lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
-        avante_commands = {
-          name = 'avante_commands',
-          module = 'blink.compat.source',
-          score_offset = 90, -- show at a higher priority than lsp
-          opts = {},
-        },
-        avante_files = {
-          name = 'avante_commands',
-          module = 'blink.compat.source',
-          score_offset = 100, -- show at a higher priority than lsp
-          opts = {},
-        },
-        avante_mentions = {
-          name = 'avante_mentions',
-          module = 'blink.compat.source',
-          score_offset = 1000, -- show at a higher priority than lsp
-          opts = {},
-        },
-      },
-    },
+    -- sources = {
+    --   default = {
+    --     'copilot',
+    --     'lsp',
+    --     'path',
+    --     'snippets',
+    --     -- 'lazydev',
+    --     -- 'avante_commands',
+    --     -- 'avante_mentions',
+    --     -- 'avante_files',
+    --   },
+    --   -- Add specific sources for codecompanion filetype
+    --   per_filetype = {
+    --     codecompanion = { 'buffer' },
+    --     lua = { 'lazydev' },
+    --   },
+    --   providers = {
+    --     copilot = { module = 'blink-copilot', score_offset = 1000 },
+    --     lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
+    --   },
+    -- },
 
     snippets = { preset = 'luasnip' },
 

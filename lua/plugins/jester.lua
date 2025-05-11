@@ -1,8 +1,52 @@
 return {
   'David-Kunz/jester',
-  -- event = 'VeryLazy',
+  lazy = true, -- Enable lazy loading
   dependencies = {
     'mfussenegger/nvim-dap',
+  },
+  keys = {
+    {
+      '<leader>rt',
+      function()
+        require('jester').run()
+      end,
+      desc = '[R]un [T]est',
+    },
+    {
+      '<leader>rf',
+      function()
+        require('jester').run_file()
+      end,
+      desc = '[R]un [F]ile Tests',
+    },
+    {
+      '<leader>rl',
+      function()
+        require('jester').run_last()
+      end,
+      desc = '[R]un [L]ast Test',
+    },
+    {
+      '<leader>dt',
+      function()
+        require('jester').debug()
+      end,
+      desc = '[D]ebug [T]est',
+    },
+    {
+      '<leader>df',
+      function()
+        require('jester').debug_file()
+      end,
+      desc = '[D]ebug [F]ile Test',
+    },
+    {
+      '<leader>dl',
+      function()
+        require('jester').debug_last()
+      end,
+      desc = '[D]ebug [L]ast Test',
+    },
   },
   config = function()
     require('jester').setup {
@@ -20,11 +64,5 @@ return {
         sourceMaps = false,
       },
     }
-    vim.keymap.set('n', '<leader>rt', require('jester').run, { desc = '[R]un [T]est' })
-    vim.keymap.set('n', '<leader>rf', require('jester').run_file, { desc = '[R]un [F]ile Tests' })
-    vim.keymap.set('n', '<leader>rl', require('jester').run_last, { desc = '[R]un [L]ast Test' })
-    vim.keymap.set('n', '<leader>dt', require('jester').debug, { desc = '[D]ebug [T]est' })
-    vim.keymap.set('n', '<leader>df', require('jester').debug_file, { desc = '[D]ebug [F]ile Test' })
-    vim.keymap.set('n', '<leader>dl', require('jester').debug_last, { desc = '[D]ebug [L]ast Test' })
   end,
 }

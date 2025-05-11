@@ -2,8 +2,10 @@ local with_local_config = require 'utils.with_local_config'
 
 return {
   'yetone/avante.nvim',
-  event = 'VeryLazy',
   lazy = true,
+  keys = {
+    { '<leader>aa', '<cmd>AvanteAsk<cr>', desc = 'Avante' },
+  },
   enabled = function()
     return vim.g.vscode == nil
   end,

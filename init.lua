@@ -11,6 +11,7 @@ require('lazy').setup({
   'tpope/vim-sleuth',
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
+  require 'plugins.no-neck-pain',
   require 'plugins.comment',
   require 'plugins.gitsigns',
   require 'plugins.which-key',
@@ -34,11 +35,11 @@ require('lazy').setup({
   require 'plugins.rest',
   require 'plugins.render-markdown',
   require 'plugins.grug-far',
-  require 'plugins.no-neck-pain',
   require 'plugins.arctic',
   require 'plugins.mcp-hub',
   require 'plugins.copilot',
-  require 'plugins.copilot-blink',
+  require 'plugins.blink-copilot', -- Added dedicated Copilot integration for blink.cmp
+  require 'plugins.blink-compat-init', -- Added to ensure proper compat layer initialization for CodeCompanion
   require 'plugins.blink-cmp',
   require 'plugins.avante',
   require 'plugins.aider',

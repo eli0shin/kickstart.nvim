@@ -5,13 +5,17 @@ vim.g.codecompanion_auto_tool_mode = true
 return {
   {
     'Davidyz/VectorCode',
+    lazy = true,
     version = '*', -- optional, depending on whether you're on nightly or release
     -- build = 'pipx upgrade vectorcode', -- optional but recommended. This keeps your CLI up-to-date.
     dependencies = { 'nvim-lua/plenary.nvim' },
   },
   {
     'olimorris/codecompanion.nvim',
-    event = 'VeryLazy',
+    lazy = true,
+    keys = {
+      { '<leader>cc', '<cmd>CodeCompanionToggle<cr>', desc = 'CodeCompanion' },
+    },
     dependencies = {
       'nvim-lua/plenary.nvim',
       'nvim-treesitter/nvim-treesitter',

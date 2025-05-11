@@ -22,18 +22,19 @@ local prompts = {
 return {
   {
     'zbirenbaum/copilot.lua',
-
     cmd = 'Copilot',
-    event = 'VeryLazy',
+    lazy = true,
     config = function()
       require('copilot').setup {
-        suggestion = { enabled = false },
-        panel = { enabled = true },
+        suggestion = { enabled = false }, -- Disable native suggestions as they'll be handled by blink-copilot
+        panel = { enabled = false }, -- Disable panel as it's not needed with blink-copilot
       }
     end,
   },
   {
     'copilotlsp-nvim/copilot-lsp',
+    lazy = true,
+    event = 'BufEnter',
     init = function()
       vim.g.copilot_nes_debounce = 500
       vim.lsp.enable 'copilot_ls'
@@ -44,6 +45,24 @@ return {
           or (require('copilot-lsp.nes').apply_pending_nes() and require('copilot-lsp.nes').walk_cursor_end_edit())
       end)
     end,
+    keymap = {
+      preset = 'super-tab',
+      ['<Tab>'] = {
+        function(cmp)
+          if vim.b[vim.api.nvim_get_current_buf()].nes_state then
+            cmp.hide()
+            return (require('copilot-lsp.nes').apply_pending_nes() and require('copilot-lsp.nes').walk_cursor_end_edit())
+          end
+          if cmp.snippet_active() then
+            return cmp.accept()
+          else
+            return cmp.select_and_accept()
+          end
+        end,
+        'snippet_forward',
+        'fallback',
+      },
+    },
   },
   {
     'CopilotC-Nvim/CopilotChat.nvim',
@@ -133,7 +152,6 @@ return {
         end,
       })
     end,
-    event = 'VeryLazy',
     keys = {
       -- Show prompts actions with telescope
       {

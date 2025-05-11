@@ -1,6 +1,8 @@
 -- tailwind-tools.lua
 return {
   'luckasRanarison/tailwind-tools.nvim',
+  lazy = true,
+  event = 'InsertEnter',
   name = 'tailwind-tools',
   build = ':UpdateRemotePlugins',
   dependencies = {

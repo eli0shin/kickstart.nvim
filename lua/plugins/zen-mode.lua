@@ -1,6 +1,6 @@
 return {
   'folke/zen-mode.nvim',
-  event = 'VeryLazy',
+  lazy = true,
   opts = {
     window = {
       width = 160,
@@ -8,5 +8,8 @@ return {
     -- your configuration comes here
     -- or leave it empty to use the default settings
     -- refer to the configuration section below
+  },
+  keys = {
+    { '<leader>z', '<cmd>ZenMode<cr>', desc = 'ZenMode' },
   },
 }
