@@ -7,7 +7,7 @@ A powerful and feature-rich Neovim setup optimized for modern development workfl
 - **Lazy Plugin Management**: Using lazy.nvim for efficient plugin loading
 - **Modern UI**: Minimal and clean interface with Arctic theme
 - **LSP Integration**: Full Language Server Protocol support with intelligent code completion
-- **Git Integration**: Seamless git workflow with Fugitive, Gitsigns, and Octo
+- **Git Integration**: Seamless git workflow with Fugitive, Gitsigns, Diffview, and Octo
 - **AI Assistance**: CodeCompanion, Copilot, and Aider integration for AI-powered development
 - **Testing Tools**: Jester for JavaScript/TypeScript testing
 - **Debugging**: DAP integration for interactive debugging
@@ -37,6 +37,21 @@ git clone https://github.com/yourusername/nvim-config.git ~/.config/nvim
 nvim
 ```
 
+## Structure
+
+```
+.
+├── init.lua                 # Entry point and plugin initialization
+└── lua/
+    ├── plugins/             # Individual plugin configurations
+    ├── utils/               # Helper utilities
+    ├── autocommands.lua     # Custom autocommands
+    ├── motions.lua          # Custom motions and keymaps
+    ├── nvim-config.lua      # Core Neovim settings
+    ├── health.lua           # Health checks
+    └── lazy-setup.lua       # Lazy.nvim configuration
+```
+
 ## Key Plugins
 
 - **LSP Configuration**: Native LSP with enhanced capabilities
@@ -48,22 +63,6 @@ nvim
 - **Conform.nvim**: Code formatting
 - **Which-key**: Key binding hints
 - **Arrow.nvim**: Quick navigation within buffers
-
-## Structure
-
-```
-.
-├── init.lua                 # Entry point and plugin initialization
-└── lua/
-    ├── autocommands.lua     # Custom autocommands
-    ├── kickstart/
-    │   └── health.lua       # Health check functionality
-    ├── lazy-setup.lua       # Lazy.nvim configuration
-    ├── motions.lua          # Custom motions and keymaps
-    ├── nvim-config.lua      # Core Neovim settings
-    ├── plugins/             # Individual plugin configurations
-    └── utils/              # Helper utilities
-```
 
 ## Customization
 
