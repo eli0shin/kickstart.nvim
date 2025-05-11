@@ -38,8 +38,8 @@ require('lazy').setup({
   require 'plugins.arctic',
   require 'plugins.mcp-hub',
   require 'plugins.copilot',
-  require 'plugins.blink-copilot', -- Added dedicated Copilot integration for blink.cmp
-  require 'plugins.blink-compat-init', -- Added to ensure proper compat layer initialization for CodeCompanion
+  require 'plugins.blink-copilot',
+  require 'plugins.blink-compat-init',
   require 'plugins.blink-cmp',
   require 'plugins.avante',
   require 'plugins.aider',
