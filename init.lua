@@ -47,6 +47,7 @@ require('lazy').setup({
   require 'plugins.dap',
   require 'plugins.indent_line',
   require 'plugins.lint',
+  require 'plugins.windsurf',
 }, {
   ui = {
     icons = {},
