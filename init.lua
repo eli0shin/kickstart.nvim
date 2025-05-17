@@ -1,13 +1,24 @@
+-- Determine if we're in VSCode or regular Neovim
+-- The vscode-neovim extension sets g:vscode automatically
+
 require 'nvim-config'
 require 'motions'
 require 'autocommands'
 require 'lazy-setup'
 
+-- Load VSCode-specific configurations if in VSCode
+if vim.g.vscode then
+  require('vscode-integration').setup()
+end
+
 vim.g.github_enterprise_urls = { 'https://github.paypal.com' }
+
+-- Import plugin filter
+local plugin_filter = require 'plugin-filter'
 
 --  To check the current status of your plugins, run
 --    :Lazy
-require('lazy').setup({
+local plugins = {
   'tpope/vim-sleuth',
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
@@ -48,7 +59,10 @@ require('lazy').setup({
   require 'plugins.indent_line',
   require 'plugins.lint',
   require 'plugins.windsurf',
-}, {
+}
+
+-- Filter plugins based on environment
+require('lazy').setup(plugin_filter.filter_plugins(plugins), {
   ui = {
     icons = {},
   },

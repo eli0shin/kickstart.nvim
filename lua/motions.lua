@@ -1,10 +1,21 @@
--- Create a local function to simplify mapping
+-- Create a local function to simplify mapping using our action helper
+local actions = require 'utils.actions'
+
+-- Forward compatibility mapping function
 local map = function(mode, lhs, rhs, opts)
-  local options = { noremap = true }
-  if opts then
-    options = vim.tbl_extend('force', options, opts)
+  -- Keep backward compatibility for string commands
+  if type(rhs) == 'string' then
+    local options = { noremap = true }
+    if opts then
+      options = vim.tbl_extend('force', options, opts)
+    end
+    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+  else
+    -- For our action tables
+    vim.keymap.set(mode, lhs, function()
+      actions.execute_action(rhs)
+    end, opts)
   end
-  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
 -- Set <space> as the leader key
@@ -37,19 +48,57 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
---
 --  See `:help wincmd` for a list of all window commands
-vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+vim.keymap.set('n', '<C-h>', function()
+  actions.execute_action {
+    nvim_action = '<C-w><C-h>',
+    vscode_command = 'workbench.action.navigateLeft',
+  }
+end, { desc = 'Move focus to the left window' })
+
+vim.keymap.set('n', '<C-l>', function()
+  actions.execute_action {
+    nvim_action = '<C-w><C-l>',
+    vscode_command = 'workbench.action.navigateRight',
+  }
+end, { desc = 'Move focus to the right window' })
+
+vim.keymap.set('n', '<C-j>', function()
+  actions.execute_action {
+    nvim_action = '<C-w><C-j>',
+    vscode_command = 'workbench.action.navigateDown',
+  }
+end, { desc = 'Move focus to the lower window' })
+
+vim.keymap.set('n', '<C-k>', function()
+  actions.execute_action {
+    nvim_action = '<C-w><C-k>',
+    vscode_command = 'workbench.action.navigateUp',
+  }
+end, { desc = 'Move focus to the upper window' })
 
 -- Split windows
-map('n', '<Leader>h', ':split<CR>', { silent = true })
-map('n', '<Leader>v', ':vsplit<CR>', { silent = true })
+map('n', '<Leader>h', {
+  nvim_action = ':split<CR>',
+  vscode_command = 'workbench.action.splitEditorDown',
+}, { silent = true, desc = 'Split horizontally' })
+
+map('n', '<Leader>v', {
+  nvim_action = ':vsplit<CR>',
+  vscode_command = 'workbench.action.splitEditorRight',
+}, { silent = true, desc = 'Split vertically' })
 
 -- remap ; to  : in normal mode
 vim.keymap.set({ 'n', 'x', 'o', 'v' }, ';', ':', { remap = true })
 
--- Set the keymap to toggle ZenMode
-vim.api.nvim_set_keymap('n', '<leader>z', ':ZenMode<CR>', { noremap = true, silent = true, desc = 'Toggle Zen Mode' })
+-- Set the keymap to toggle ZenMode (only in regular Neovim)
+if not vim.g.vscode then
+  vim.api.nvim_set_keymap('n', '<leader>z', ':ZenMode<CR>', { noremap = true, silent = true, desc = 'Toggle Zen Mode' })
+else
+  -- In VSCode, we might want to use a different command for a similar effect
+  vim.keymap.set('n', '<leader>z', function()
+    actions.execute_action {
+      vscode_command = 'workbench.action.toggleZenMode',
+    }
+  end, { desc = 'Toggle Zen Mode' })
+end
