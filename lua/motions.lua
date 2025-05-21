@@ -20,6 +20,16 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
+-- Send literal Escape key to terminal applications when pressing Shift+Escape
+-- This allows apps like Claude Code to receive Escape key presses
+vim.keymap.set('t', '<S-Esc>', function()
+  local buf = vim.api.nvim_get_current_buf()
+  local chan_id = vim.b[buf].terminal_job_id
+  if chan_id then
+    vim.api.nvim_chan_send(chan_id, string.char(27))  -- ASCII 27 is ESC
+  end
+end, { desc = 'Send literal Escape key to terminal' })
+
 -- TIP: Disable arrow keys in normal mode
 -- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
 -- vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
