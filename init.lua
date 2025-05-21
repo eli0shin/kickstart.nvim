@@ -8,12 +8,7 @@ vim.g.github_enterprise_urls = { 'https://github.paypal.com' }
 --  To check the current status of your plugins, run
 --    :Lazy
 require('lazy').setup({
-  -- Intelligently set tab settings based on file
-  { 'tpope/vim-sleuth', event = { "BufReadPre", "BufNewFile" } },
-  -- Git integration
-  { 'tpope/vim-fugitive', event = "VeryLazy", cmd = { "Git", "Gstatus", "Gblame", "Gpush", "Gpull" } },
-  -- GitHub integration
-  { 'tpope/vim-rhubarb', dependencies = { 'tpope/vim-fugitive' }, event = "VeryLazy" },
+  require 'plugins.tpope',
   require 'plugins.no-neck-pain',
   require 'plugins.comment',
   require 'plugins.gitsigns',
@@ -50,7 +45,6 @@ require('lazy').setup({
   require 'plugins.dap',
   require 'plugins.indent_line',
   require 'plugins.lint',
-  require 'plugins.windsurf',
 }, {
   ui = {
     icons = {},
@@ -59,17 +53,17 @@ require('lazy').setup({
     rtp = {
       -- disable some rtp plugins
       disabled_plugins = {
-        "gzip",
-        "matchit",
-        "matchparen",
-        "netrwPlugin",
-        "tarPlugin",
-        "tohtml",
-        "tutor",
-        "zipPlugin",
-        "spellfile_plugin",
-        "rplugin",
-        "shada",
+        'gzip',
+        'matchit',
+        'matchparen',
+        'netrwPlugin',
+        'tarPlugin',
+        'tohtml',
+        'tutor',
+        'zipPlugin',
+        'spellfile_plugin',
+        'rplugin',
+        'shada',
       },
     },
   },
