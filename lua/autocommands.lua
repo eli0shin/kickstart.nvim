@@ -61,6 +61,12 @@ vim.api.nvim_create_user_command('Messages', function()
 
   vim.api.nvim_buf_set_lines(buf, 0, -1, false, vim.split(out, '\n'))
   vim.bo[buf].filetype = 'msglog'
-  vim.cmd 'botright 10split'
-  vim.api.nvim_win_set_buf(0, buf)
+  -- Create a new window split and get its ID
+  local win = vim.api.nvim_open_win(buf, true, {
+    relative = 'editor',
+    split = 'below',
+    height = 10,
+  })
+  -- Set current window to the new split
+  vim.api.nvim_set_current_win(win)
 end, {})

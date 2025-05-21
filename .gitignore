@@ -7,3 +7,4 @@ spell/
 lazy-lock.json
 .aider*
 */**/*-local.lua
+startup_logs

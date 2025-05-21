@@ -2,6 +2,7 @@ return {
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
+    event = { 'BufReadPost', 'BufNewFile' },
     opts = {
       ensure_installed = {
         'bash',
@@ -42,6 +43,7 @@ return {
   },
   {
     'nvim-treesitter/nvim-treesitter-textobjects',
+    event = 'VeryLazy',
     config = function()
       require('nvim-treesitter.configs').setup {
         textobjects = {

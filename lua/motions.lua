@@ -1,12 +1,3 @@
--- Create a local function to simplify mapping
-local map = function(mode, lhs, rhs, opts)
-  local options = { noremap = true }
-  if opts then
-    options = vim.tbl_extend('force', options, opts)
-  end
-  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-end
-
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
@@ -45,8 +36,8 @@ vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower win
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window', remap = true })
 
 -- Split windows
-map('n', '<Leader>h', ':split<CR>', { silent = true })
-map('n', '<Leader>v', ':vsplit<CR>', { silent = true })
+vim.keymap.set('n', '<Leader>h', ':split<CR>', { silent = true, desc = 'Split window horizontally' })
+vim.keymap.set('n', '<Leader>v', ':vsplit<CR>', { silent = true, desc = 'Split window vertically' })
 
 -- remap ; to  : in normal mode
 vim.keymap.set({ 'n', 'x', 'o', 'v' }, ';', ':', { remap = true })

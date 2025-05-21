@@ -46,6 +46,8 @@ NEVER show the changes to the user, just call the tool, and the edits will be ap
 
 After editing a file, use the get_diagnostics tool to check if there are any errors.
 Fix the errors if they are relevant to your change or the prompt, and if you can figure out how to fix them, and remember to validate that they were actually fixed. Do not loop more than 3 times attempting to fix errors in the same file. If the third try fails, you should stop and ask the user what to do next.
+
+When calling a tools from an mcp server, make sure to use the mcp tool and pass the server and tool names as a parameter.
   ]]
 
 return {
@@ -178,20 +180,7 @@ return {
         provider = 'brave',
         proxy = nil,
       },
-      disabled_tools = {
-        'list_files',
-        'search_files',
-        'read_file',
-        'create_file',
-        'rename_file',
-        'delete_file',
-        'create_dir',
-        'rename_dir',
-        'delete_dir',
-        'bash',
-        'run_python',
-        'create',
-      },
+      disabled_tools = {},
     }))
   end,
 }
