@@ -7,8 +7,8 @@ vim.g.maplocalleader = ' '
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
+vim.keymap.set('n', '[d', function() vim.diagnostic.goto(-1) end, { desc = 'Go to previous [D]iagnostic message' })
+vim.keymap.set('n', ']d', function() vim.diagnostic.goto(1) end, { desc = 'Go to next [D]iagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
@@ -26,7 +26,7 @@ vim.keymap.set('t', '<S-Esc>', function()
   local buf = vim.api.nvim_get_current_buf()
   local chan_id = vim.b[buf].terminal_job_id
   if chan_id then
-    vim.api.nvim_chan_send(chan_id, string.char(27))  -- ASCII 27 is ESC
+    vim.api.nvim_chan_send(chan_id, string.char(27)) -- ASCII 27 is ESC
   end
 end, { desc = 'Send literal Escape key to terminal' })
 

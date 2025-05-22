@@ -49,7 +49,7 @@ vim.opt.splitbelow = true
 --  See `:help 'list'`
 --  and `:help 'listchars'`
 vim.opt.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.listchars = 'tab:> ,trail:·,nbsp:+'
 
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'
@@ -58,8 +58,6 @@ vim.opt.inccommand = 'split'
 vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
-vim.opt.scrolloff = 10
-
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
 
@@ -85,4 +83,4 @@ vim.opt.expandtab = false
 vim.opt.smartindent = true
 
 -- disable pesky messages that require pressing enter
-vim.opt.messagesopt = { 'wait:0', 'history:500' }
+-- vim.opt.messagesopt = { 'wait:0', 'history:500' }

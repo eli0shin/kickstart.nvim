@@ -13,6 +13,7 @@ require('lazy').setup({
   require 'plugins.comment',
   require 'plugins.gitsigns',
   require 'plugins.which-key',
+  require 'plugins.lualine',
   require 'plugins.telescope',
   require 'plugins.lsp',
   require 'plugins.conform',
@@ -45,6 +46,9 @@ require('lazy').setup({
   require 'plugins.dap',
   require 'plugins.indent_line',
   require 'plugins.lint',
+  require 'plugins.trouble',
+  require 'plugins.noice',
+  require 'plugins.flash',
 }, {
   ui = {
     icons = {},
