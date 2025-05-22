@@ -50,6 +50,7 @@ Fix the errors if they are relevant to your change or the prompt, and if you can
 When calling a tools from an mcp server, make sure to use the mcp tool and pass the server and tool names as a parameter.
   ]]
 
+---@class avante.Config
 return {
   'yetone/avante.nvim',
   lazy = true,
@@ -158,6 +159,9 @@ return {
         enable_token_counting = true,
         enable_cursor_planning_mode = false,
         enable_claude_text_editor_tool_mode = false,
+      },
+      history = {
+        max_tokens = 40000,
       },
       -- other config
       -- The system_prompt type supports both a string and a function that returns a string. Using a function here allows dynamically updating the prompt with mcphub
