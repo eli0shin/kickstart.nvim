@@ -11,6 +11,7 @@ return {
       component_separators = '',
       disabled_filetypes = { 'NvimTree', 'oil', 'Trouble', 'dashboard', 'alpha', 'avante', 'codecompanion' },
       always_divide_middle = false,
+      globalstatus = true,
     },
     sections = {
       lualine_a = { 'mode' },
@@ -23,8 +24,8 @@ return {
     inactive_sections = {
       lualine_a = {},
       lualine_b = {},
-      lualine_c = {},
-      lualine_x = { 'location' },
+      lualine_c = { { 'filename', path = 1 } },
+      lualine_x = {},
       lualine_y = {},
       lualine_z = {},
     },
