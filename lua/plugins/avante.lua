@@ -1,5 +1,7 @@
 local with_local_config = require 'utils.with_local_config'
 
+package.cpath = vim.fn.stdpath 'data' .. '/avante/?.so;' .. package.cpath
+
 -- Some prompt lines that I'm not using right now:
 -- If you think running multiple tools can answer the user's question, prefer calling them in parallel whenever possible.
 -- Don't run terminal commands multiple times in parallel. Instead, run one command and wait for the output before running the next command.
