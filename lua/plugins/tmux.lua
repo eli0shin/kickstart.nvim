@@ -12,17 +12,39 @@ return {
         resize_step_y = 10,
       },
     }
-    vim.keymap.set({ 'n', 'x', 'o', 'v' }, '<M-h>', function()
-      require('tmux').resize_left()
-    end)
-    vim.keymap.set({ 'n', 'x', 'o', 'v' }, '<M-j>', function()
-      require('tmux').resize_bottom()
-    end)
-    vim.keymap.set({ 'n', 'x', 'o', 'v' }, '<M-k>', function()
-      require('tmux').resize_top()
-    end)
-    vim.keymap.set({ 'n', 'x', 'o', 'v' }, '<M-l>', function()
-      require('tmux').resize_right()
-    end)
   end,
+  keys = {
+    {
+      '<M-h>',
+      function()
+        require('tmux').resize_left()
+      end,
+      mode = { 'n', 'x', 'o', 'v' },
+      desc = 'Tmux resize left',
+    },
+    {
+      '<M-j>',
+      function()
+        require('tmux').resize_bottom()
+      end,
+      mode = { 'n', 'x', 'o', 'v' },
+      desc = 'Tmux resize down',
+    },
+    {
+      '<M-k>',
+      function()
+        require('tmux').resize_top()
+      end,
+      mode = { 'n', 'x', 'o', 'v' },
+      desc = 'Tmux resize up',
+    },
+    {
+      '<M-l>',
+      function()
+        require('tmux').resize_right()
+      end,
+      mode = { 'n', 'x', 'o', 'v' },
+      desc = 'Tmux resize right',
+    },
+  },
 }

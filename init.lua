@@ -43,6 +43,7 @@ require('lazy').setup({
   require 'plugins.aider',
   require 'plugins.tailwind-tools',
   require 'plugins.codecompanion',
+  require 'plugins.claude-code',
   require 'plugins.dap',
   require 'plugins.indent_line',
   require 'plugins.lint',
