@@ -54,7 +54,10 @@ When calling a tools from an mcp server, make sure to use the mcp tool and pass 
 
 ---@class avante.Config
 return {
-  'yetone/avante.nvim',
+  'eli0shin/avante.nvim',
+  branch = 'auto_tool_mode',
+  -- dir = '/Users/elioshinsky/code/avante.nvim',
+  name = 'avante.nvim',
   lazy = true,
   keys = {
     { '<leader>aa', '<cmd>AvanteAsk<cr>', desc = 'Avante' },
@@ -152,16 +155,12 @@ return {
       },
       behaviour = {
         auto_suggestions = false, -- Experimental stage
-        auto_set_highlight_group = true,
-        auto_focus_on_diff_view = false,
         auto_set_keymaps = true,
-        auto_apply_diff_after_generation = true,
         support_paste_from_clipboard = true,
         jump_result_buffer_on_finish = false,
         minimize_diff = true,
         enable_token_counting = true,
-        enable_cursor_planning_mode = false,
-        enable_claude_text_editor_tool_mode = false,
+        auto_approve_tool_permissions = true,
       },
       history = {
         max_tokens = 40000,
@@ -187,7 +186,17 @@ return {
         provider = 'brave',
         proxy = nil,
       },
-      disabled_tools = {},
+      -- Prefer the mcphub neovim tools which handle permissions and focus movement better
+      disabled_tools = {
+        'write_to_file',
+        'replace_in_file',
+        'insert',
+        'rename_file',
+        'delete_file',
+        'create_dir',
+        'rename_dir',
+        'delete_dir',
+      },
     }))
   end,
 }
