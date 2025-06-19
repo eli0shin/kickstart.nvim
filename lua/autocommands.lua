@@ -12,6 +12,21 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- Configure terminal environment for proper color support
+vim.api.nvim_create_autocmd('TermOpen', {
+  desc = 'Set terminal environment variables for color support',
+  group = vim.api.nvim_create_augroup('terminal-env', { clear = true }),
+  callback = function()
+    -- Set environment variables for proper color support in nested terminals
+    vim.fn.setenv('COLORTERM', 'truecolor')
+    -- Preserve the original TERM if it supports colors
+    local current_term = vim.env.TERM
+    if current_term and (current_term:match('256color') or current_term:match('xterm')) then
+      vim.fn.setenv('TERM', current_term)
+    end
+  end,
+})
+
 vim.api.nvim_create_user_command('Browse', function(opts)
   vim.fn.system { 'open', opts.fargs[1] }
 end, { nargs = 1 })
