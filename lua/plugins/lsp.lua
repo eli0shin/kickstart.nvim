@@ -139,6 +139,12 @@ return { -- LSP Configuration & Plugins
       end,
     })
 
+    -- Fix LSP diagnostic underline colors for ghostty terminal
+    vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", { underline = true, sp = "#ff0000" })
+    vim.api.nvim_set_hl(0, "DiagnosticUnderlineWarn", { underline = true, sp = "#ff8800" })
+    vim.api.nvim_set_hl(0, "DiagnosticUnderlineInfo", { underline = true, sp = "#0088ff" })
+    vim.api.nvim_set_hl(0, "DiagnosticUnderlineHint", { underline = true, sp = "#00ff88" })
+
     -- LSP servers and clients are able to communicate to each other what features they support.
     --  By default, Neovim doesn't support everything that is in the LSP specification.
     --  When you add blink.cmp, luasnip, etc. Neovim now has *more* capabilities.
