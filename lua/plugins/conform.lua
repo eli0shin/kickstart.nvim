@@ -46,6 +46,13 @@ return { -- Autoformat
         lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
       }
     end,
+    formatters = {
+      ['prettier'] = {
+        prepend_args = {
+          '--quote-props=preserve',
+        },
+      },
+    },
     formatters_by_ft = {
       lua = { 'stylua' },
       -- Conform can also run multiple formatters sequentially
