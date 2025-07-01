@@ -8,4 +8,12 @@ return {
     { '<leader>dvo', '<cmd>DiffviewOpen<cr>', desc = '[O]pen' },
     { '<leader>dvi', ':DiffviewOpen ', desc = '[I]nsert Target Git Object' },
   },
+  opts = {
+    keymaps = {
+      view = {
+        -- Disable the default <leader>e keymap to avoid conflict with LSP diagnostics
+        { "n", "<leader>e", false },
+      },
+    },
+  },
 }
