@@ -46,8 +46,6 @@ require('lazy').setup({
   require 'plugins.lint',
   require 'plugins.trouble',
   require 'plugins.noice',
-  require 'plugins.flash',
-  require 'plugins.nvim-ufo',
   require 'plugins.numb',
 }, {
   ui = {
