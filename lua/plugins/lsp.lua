@@ -207,9 +207,20 @@ return { -- LSP Configuration & Plugins
         enabled = false,
       },
     }
-    -- gleam lsp doesn't work well with mason. Install it on it's own.
-    require('lspconfig').gleam.setup {}
-    require('lspconfig').fish_lsp.setup {}
+
+    -- Configure LSP servers using the new vim.lsp.config API
+    for server_name, config in pairs(servers) do
+      config.capabilities = vim.tbl_deep_extend('force', {}, capabilities, config.capabilities or {})
+      vim.lsp.config(server_name, config)
+    end
+
+    -- gleam and fish_lsp don't work well with mason. Configure them manually.
+    vim.lsp.config.gleam = {
+      capabilities = capabilities,
+    }
+    vim.lsp.config.fish_lsp = {
+      capabilities = capabilities,
+    }
 
     -- Ensure the servers and tools above are installed
     --  To check the current status of installed tools and/or manually install
@@ -228,16 +239,10 @@ return { -- LSP Configuration & Plugins
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
     require('mason-lspconfig').setup {
-      handlers = {
-        function(server_name)
-          local server = servers[server_name] or {}
-          -- This handles overriding only values explicitly passed
-          -- by the server configuration above. Useful when disabling
-          -- certain features of an LSP (for example, turning off formatting for tsserver)
-          server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-          require('lspconfig')[server_name].setup(server)
-        end,
-      },
+      automatic_enable = vim.tbl_keys(servers or {}),
     }
+
+    -- Enable the manually configured servers
+    vim.lsp.enable({ 'gleam', 'fish_lsp' })
   end,
 }

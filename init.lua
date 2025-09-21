@@ -41,7 +41,6 @@ require('lazy').setup({
   require 'plugins.blink-cmp',
   require 'plugins.tailwind-tools',
   require 'plugins.claude-code',
-  require 'plugins.dap',
   require 'plugins.indent_line',
   require 'plugins.lint',
   require 'plugins.trouble',
