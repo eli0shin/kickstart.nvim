@@ -54,17 +54,11 @@ return {
     completion = {
       -- Show documentation panel automatically
       documentation = { auto_show = true, auto_show_delay_ms = 50 },
-
-      -- -- Global trigger settings - make everything faster
-      -- trigger = {
-      --   auto = true, -- Enable auto-triggering globally
-      --   delay_ms = 0, -- No delay for all completions
-      --   debounce_ms = 0, -- No debounce time (instant triggering)
-      --   auto_after_trigger = 0, -- Show after typing any character
-      --   throttle_ms = 30, -- Very small throttle to prevent flicker
-      -- },
-      --
-      -- -- Per-filetype completion settings
+      
+      -- Accept auto-import on completion
+      accept = {
+        auto_brackets = { enabled = true },
+      },
     },
 
     -- Blink.cmp includes an optional, recommended rust fuzzy matcher,

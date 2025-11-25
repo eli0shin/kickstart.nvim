@@ -140,10 +140,10 @@ return { -- LSP Configuration & Plugins
     })
 
     -- Fix LSP diagnostic underline colors for ghostty terminal
-    vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", { underline = true, sp = "#ff0000" })
-    vim.api.nvim_set_hl(0, "DiagnosticUnderlineWarn", { underline = true, sp = "#ff8800" })
-    vim.api.nvim_set_hl(0, "DiagnosticUnderlineInfo", { underline = true, sp = "#0088ff" })
-    vim.api.nvim_set_hl(0, "DiagnosticUnderlineHint", { underline = true, sp = "#00ff88" })
+    vim.api.nvim_set_hl(0, 'DiagnosticUnderlineError', { underline = true, sp = '#ff0000' })
+    vim.api.nvim_set_hl(0, 'DiagnosticUnderlineWarn', { underline = true, sp = '#ff8800' })
+    vim.api.nvim_set_hl(0, 'DiagnosticUnderlineInfo', { underline = true, sp = '#0088ff' })
+    vim.api.nvim_set_hl(0, 'DiagnosticUnderlineHint', { underline = true, sp = '#00ff88' })
 
     -- LSP servers and clients are able to communicate to each other what features they support.
     --  By default, Neovim doesn't support everything that is in the LSP specification.
@@ -178,11 +178,14 @@ return { -- LSP Configuration & Plugins
       --
       -- But for many setups, the LSP (`tsserver`) will work just fine
       ts_ls = {
-        enabled = false,
+        cmd = { 'typescript-language-server', '--stdio' },
+        root_markers = { 'tsconfig.json', 'package.json', 'jsconfig.json', '.git' },
+        filetypes = { 'javascript', 'javascriptreact', 'javascript.jsx', 'typescript', 'typescriptreact', 'typescript.tsx' },
         single_file_support = true,
       },
       htmx = { enabled = false },
       html = {},
+      tailwindcss = {},
       -- jdtls = {},
       bashls = {},
       --
@@ -232,17 +235,26 @@ return { -- LSP Configuration & Plugins
 
     -- You can add other tools here that you want Mason to install
     -- for you, so that they are available from within Neovim.
-    local ensure_installed = vim.tbl_keys(servers or {})
+    local ensure_installed = {}
+    for server_name, config in pairs(servers) do
+      if config.enabled ~= false then
+        table.insert(ensure_installed, server_name)
+      end
+    end
     vim.list_extend(ensure_installed, {
       'stylua', -- Used to format Lua code
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
-    require('mason-lspconfig').setup {
-      automatic_enable = vim.tbl_keys(servers or {}),
-    }
+    -- Enable all configured servers
+    local servers_to_enable = {}
+    for server_name, config in pairs(servers) do
+      if config.enabled ~= false then
+        table.insert(servers_to_enable, server_name)
+      end
+    end
+    vim.list_extend(servers_to_enable, { 'gleam', 'fish_lsp' })
 
-    -- Enable the manually configured servers
-    vim.lsp.enable({ 'gleam', 'fish_lsp' })
+    vim.lsp.enable(servers_to_enable)
   end,
 }

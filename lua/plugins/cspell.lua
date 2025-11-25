@@ -25,7 +25,7 @@ return {
     event = { 'BufReadPre', 'BufNewFile' },
     opts = function()
       local cspell = require 'cspell'
-      local ok, none_ls = pcall(require, 'null-ls')
+      local ok, none_ls = pcall(require, 'none-ls')
       if not ok then
         return
       end
